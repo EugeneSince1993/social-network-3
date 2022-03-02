@@ -90,4 +90,4 @@ const SamuraiJSApp = (props) => {
 };
 
 export default SamuraiJSApp;
-// still doing lesson 95
+// lesson 95 - 38.30
