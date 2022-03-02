@@ -15,7 +15,7 @@ export const withRouter = (Component) => {
 
 class ProfileContainer extends React.Component {
 
-  componentDidMount() {
+  refreshProfile() {
     let userId = this.props.match.params.userId;
     if (!userId) {
       userId = this.props.authorizedUserId;
@@ -23,11 +23,20 @@ class ProfileContainer extends React.Component {
         this.props.history.push("/login");
       }
     }
-
     this.props.getUserProfile(userId);
     this.props.getStatus(userId);
   }
 
+  componentDidMount() {
+    this.refreshProfile();
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (this.props.match.params.userId != prevProps.match.params.userId) {
+      this.refreshProfile();
+    }
+  }
+  // lesson 96, 14.30
   render() {
     return (
       <Profile
