@@ -26,6 +26,29 @@ const ProfileInfo = ({profile, status, updateStatus,
         />
         { currentUserId == authorizedUserId &&
             <input type={"file"} onChange={onMainPhotoSelected} /> }
+
+        <div>
+          <div>
+            <b>Full name</b>: {profile.fullName}
+          </div>
+          <div>
+            <b>Looking for a job</b>: {profile.lookingForAJob ? "yes" : "no"}
+          </div>
+          {
+            profile.lookingForAJob &&
+              <div>
+                <b>My professional skills</b>: {profile.lookingForAJobDescription}
+              </div>
+          }
+          <div>
+            <b>About me</b>: {profile.aboutMe}
+          </div>
+          <div>
+            <b>Contacts</b>: {profile.contacts}
+          {/* 7.50 "Error: Objects are not valid as a React child..." */}
+          </div>
+        </div>
+
         <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
       </div>
     </div>
