@@ -70,4 +70,8 @@ export const updateStatus = (status) => async (dispatch) => {
   }
 };
 
+export const savePhoto = (file) => async (dispatch) => {
+// 21.50
+};
+
 export default profileReducer;

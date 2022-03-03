@@ -8,6 +8,7 @@ const Profile = (props) => {
     <div>
       <ProfileInfo
         currentUserId={props.currentUserId}
+        authorizedUserId={props.authorizedUserId}
         profile={props.profile}
         status={props.status}
         updateStatus={props.updateStatus}
