@@ -26,7 +26,6 @@ const ProfileInfo = ({profile, status, updateStatus,
         />
         { currentUserId == authorizedUserId &&
             <input type={"file"} onChange={onMainPhotoSelected} /> }
-
         <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
       </div>
     </div>

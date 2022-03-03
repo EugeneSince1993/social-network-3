@@ -7,6 +7,7 @@ const Profile = (props) => {
   return (
     <div>
       <ProfileInfo
+        savePhoto={props.savePhoto}
         currentUserId={props.currentUserId}
         authorizedUserId={props.authorizedUserId}
         profile={props.profile}
