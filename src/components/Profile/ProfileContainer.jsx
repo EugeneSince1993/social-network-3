@@ -36,11 +36,13 @@ class ProfileContainer extends React.Component {
       this.refreshProfile();
     }
   }
-  // lesson 96, 14.30
+
   render() {
     return (
       <Profile
         {...this.props}
+        // isOwner={!!this.props.match.params.userId}
+        currentUserId={this.props.match.params.userId}
         profile={this.props.profile}
         status={this.props.status}
         updateStatus={this.props.updateStatus}
