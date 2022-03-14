@@ -1,28 +1,27 @@
 import React from "react";
-import {createField, Input} from "../../common/FormsControls/FormsControls";
+import {createField, Input, Textarea} from "../../common/FormsControls/FormsControls";
 import {reduxForm} from "redux-form";
 
-const ProfileDataForm = ({profile}) => {
+const ProfileDataForm = ({handleSubmit, profile}) => {
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
+      {/* 33.00 */}
       <div>
-        <button onClick={() => {}}>save</button>
-        {/* 28.30 */}
+        <button>save</button>
       </div>
       <div>
         <b>Full name</b>: {createField("Full name", "fullName", [], Input)}
       </div>
       <div>
-        <b>Looking for a job</b>: {profile.lookingForAJob ? "yes" : "no"}
+        <b>Looking for a job</b>: { createField("", "lookingForAJob", [], Input, {type: "checkbox"}) }
       </div>
-      {
-        profile.lookingForAJob &&
-        <div>
-          <b>My professional skills</b>: {profile.lookingForAJobDescription}
-        </div>
-      }
       <div>
-        <b>About me</b>: {profile.aboutMe}
+        <b>My professional skills</b>:
+        { createField("My professional skills", "lookingForAJobDescription", [], Textarea) }
+      </div>
+      <div>
+        <b>About me</b>:
+        { createField("About me", "aboutMe", [], Textarea) }
       </div>
 {/*      <div>
         <b>Contacts</b>:
