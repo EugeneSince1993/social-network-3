@@ -6,7 +6,7 @@ import userPhoto from "../../../assets/images/user.png";
 import ProfileDataForm from "./ProfileDataForm";
 
 const ProfileInfo = ({profile, status, updateStatus,
-                       currentUserId, authorizedUserId, savePhoto}) => {
+                       currentUserId, authorizedUserId, savePhoto, saveProfile}) => {
 
   let isOwner = currentUserId == authorizedUserId;
 
@@ -22,6 +22,10 @@ const ProfileInfo = ({profile, status, updateStatus,
     }
   };
 
+  const onSubmit = (formData) => {
+    saveProfile(formData);
+  };
+
   return (
     <div>
       <div className={s.descriptionBlock}>
@@ -31,7 +35,7 @@ const ProfileInfo = ({profile, status, updateStatus,
         />
         { isOwner && <input type={"file"} onChange={onMainPhotoSelected} /> }
         { editMode
-          ? <ProfileDataForm profile={profile} />
+          ? <ProfileDataForm profile={profile} onSubmit={onSubmit} />
           : <ProfileData goToEditMode={ () => { setEditMode(true); } } profile={profile} isOwner={isOwner} /> }
         <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
       </div>

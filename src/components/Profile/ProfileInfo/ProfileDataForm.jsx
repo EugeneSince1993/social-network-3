@@ -5,7 +5,6 @@ import {reduxForm} from "redux-form";
 const ProfileDataForm = ({handleSubmit, profile}) => {
   return (
     <form onSubmit={handleSubmit}>
-      {/* 33.00 */}
       <div>
         <button>save</button>
       </div>
