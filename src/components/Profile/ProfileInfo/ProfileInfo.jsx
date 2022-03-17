@@ -24,8 +24,8 @@ const ProfileInfo = ({profile, status, updateStatus,
 
   const onSubmit = (formData) => {
     saveProfile(formData);
-    // setEditMode(false);
-    // 1.02.20
+    // 1.10.50
+    setEditMode(false);
   };
 
   return (
