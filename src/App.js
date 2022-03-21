@@ -4,19 +4,16 @@ import Navbar from './components/Navbar/Navbar';
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import {Routes, Route, BrowserRouter} from "react-router-dom";
+import {Routes, Route, BrowserRouter, Navigate} from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginPage from "./components/Login/Login";
-import {Navigate} from "react-router-dom";
 import {connect, Provider} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import store from "./redux/redux-store";
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
-
-// 16.30
 
 class App extends React.Component {
   componentDidMount() {
@@ -47,7 +44,7 @@ class App extends React.Component {
             <Route path='/profile/:userId'
                    element={this.props.isAuth ?
                      <Suspense fallback={<Preloader />}>
-                      <ProfileContainer />
+                       <ProfileContainer />
                      </Suspense>
                      : <Navigate to={'/login'} />}
             />
@@ -64,6 +61,8 @@ class App extends React.Component {
             <Route path='/music' element={<Music/>}/>
             <Route path='/settings' element={<Settings/>}/>
             <Route path='/login' element={<LoginPage />} />
+            <Route path='*' element={<div>404 NOT FOUND</div>} />
+          {/* 22.40 */}
           </Routes>
         </div>
       </div>
