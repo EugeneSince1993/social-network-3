@@ -31,22 +31,31 @@ class App extends React.Component {
         <Navbar />
         <div className='app-wrapper-content'>
           <Routes>
-            <Route path='/'
-                   element={this.props.isAuth
-                     ? <Navigate to={`/profile/${this.props.authorizedUserId}`} />
-                     : <Navigate to={'/login'} />}
+            <Route
+              exact path='/'
+              element={
+                this.props.isAuth
+                ? <Navigate to={`/profile/${this.props.authorizedUserId}`} />
+                : <Navigate to={'/login'} />
+              }
             />
-            <Route path='/profile'
-                   element={this.props.isAuth
-                     ? <Navigate to={`/profile/${this.props.authorizedUserId}`} />
-                     : <Navigate to={'/login'} />}
+            <Route
+              path='/profile'
+              element={
+                this.props.isAuth
+                ? <Navigate to={`/profile/${this.props.authorizedUserId}`} />
+                : <Navigate to={'/login'} />
+              }
             />
-            <Route path='/profile/:userId'
-                   element={this.props.isAuth ?
-                     <Suspense fallback={<Preloader />}>
-                       <ProfileContainer />
-                     </Suspense>
-                     : <Navigate to={'/login'} />}
+            <Route
+              path='/profile/:userId'
+              element={
+                this.props.isAuth ?
+                  <Suspense fallback={<Preloader />}>
+                    <ProfileContainer />
+                  </Suspense>
+                  : <Navigate to={'/login'} />
+              }
             />
             <Route
               element={
@@ -62,7 +71,6 @@ class App extends React.Component {
             <Route path='/settings' element={<Settings/>}/>
             <Route path='/login' element={<LoginPage />} />
             <Route path='*' element={<div>404 NOT FOUND</div>} />
-          {/* 22.40 */}
           </Routes>
         </div>
       </div>
