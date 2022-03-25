@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import {Routes, Route, BrowserRouter, Navigate} from "react-router-dom";
+import {Routes, Route, HashRouter, Navigate} from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginPage from "./components/Login/Login";
@@ -100,11 +100,11 @@ let AppContainer = connect(mapStateToProps, { initializeApp })(App);
 
 const SamuraiJSApp = (props) => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
